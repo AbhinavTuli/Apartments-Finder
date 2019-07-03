@@ -1,37 +1,61 @@
 {
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "api starter",
-      "types": [],
-      "intents": [
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "GetRemoteDataIntent",
-          "slots": [],
-          "samples": [
-            "how many people are in space",
-            "how many people are in space now",
-            "how many people are currently in space",
-            "how many humans are in space",
-            "how many humans are in space now",
-            "how many humans are currently in space",
-            "how many astronauts are in space",
-            "how many astronauts are in space now",
-            "how many astronauts are currently in space"
-          ]
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "apartment index",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GetRemoteDataIntent",
+                    "slots": [
+                        {
+                            "name": "city",
+                            "type": "AMAZON.City"
+                        },
+                        {
+                            "name": "price",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "show me apartments in {city} priced at less than {price} dollars"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": [
+                        "yeah",
+                        "okay",
+                        "sure",
+                        "yup",
+                        "yes"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": [
+                        "no way",
+                        "nah",
+                        "nope",
+                        "no"
+                    ]
+                }
+            ],
+            "types": []
         }
-      ]
     }
-  }
 }

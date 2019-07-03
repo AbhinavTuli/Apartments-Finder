@@ -1,0 +1,102 @@
+{
+   "query":{
+      "apartments":[
+        {
+        "price":20000,
+        "name":"yash apartment",
+        "BHK":5,
+        "city":"bengaluru"
+        },
+        {
+            "price":400000,
+            "name":"siddharth apartment",
+            "BHK":5,
+            "city":"bengaluru"
+         },
+         {
+            "price":40000,
+            "name":"arvan apartment",
+            "BHK":4,
+            "city":"bengaluru"
+         },
+         {
+            "price":3000000,
+            "name":"ojas apartment",
+            "BHK":4,
+            "city":"bengaluru"
+         },
+         {
+            "price":2000000,
+            "name":"gokul apartment",
+            "BHK":3,
+            "city":"bengaluru"
+         },
+         {
+            "price":3000,
+            "name":"abhinav apartment",
+            "BHK":3,
+            "city":"bengaluru"
+         },
+         {
+            "price":80000,
+            "name":"john apartment",
+            "BHK":2,
+            "city":"bengaluru"
+         },
+         {
+            "price":60000,
+            "name":"joe apartment",
+            "BHK":2,
+            "city":"bengaluru"
+         },
+         {
+            "price":800000,
+            "name":"paul apartment",
+            "BHK":1,
+            "city":"delhi"
+         },
+         {
+            "price":500000,
+            "name":"george apartment",
+            "BHK":1,
+            "city":"delhi"
+         },
+         {
+            "price":90000,
+            "name":"russ apartment",
+            "BHK":5,
+            "city":"delhi"
+         },
+         {
+            "price":1000000,
+            "name":"west apartment",
+            "BHK":4,
+            "city":"delhi"
+         },
+         {
+            "price":300000,
+            "name":"brook apartment",
+            "BHK":8,
+            "city":"delhi"
+         },
+         {
+            "price":50000,
+            "name":"james apartment",
+            "BHK":6,
+            "city":"delhi"
+         },
+         {
+            "price":500000,
+            "name":"jones apartment",
+            "BHK":7,
+            "city":"delhi"
+         },
+         {
+            "price":4000000,
+            "name":"lake apartment",
+            "BHK":5,
+            "city":"delhi"
+         }
+      ]
+   }
+}

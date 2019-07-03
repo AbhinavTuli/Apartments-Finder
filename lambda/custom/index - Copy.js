@@ -24,18 +24,6 @@ const LaunchRequestHandler={
 
   },
 };
-// const InProgressHandler={
-//   canHandle(handlerInput) {
-//     const request= handlerInput.requestEnvelope.request;
-//     return request.type==='IntentRequest' && request.intent.name==='GetRemoteDataIntent' && request.dialogState!=='COMPLETED';
-//   },
-//   handle(handlerInput){
-//     const currentIntent=handlerInput.requestEnvelope.request.intent;
-//     return handlerInput.responseBuilder
-//     .addDelegateDirective(currentIntent)
-//     .getResponse();
-//   },
-// };
 
 const GetRemoteDataHandler = {
   canHandle(handlerInput) {
@@ -47,7 +35,6 @@ const GetRemoteDataHandler = {
     const city = slots['city'].value;
     const price=slots['price'].value;
     var i;
-    blst=[];
     ct=0;
     for(i=0;i<data2.query.apartments.length;i++){
       slst=[];
