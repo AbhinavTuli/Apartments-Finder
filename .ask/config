@@ -17,11 +17,11 @@
       "in_skill_products": [],
       "resources": {
         "manifest": {
-          "eTag": "ebb1b7b01a44839a15bc6817e088306b"
+          "eTag": "5d77a944b590dd9f8f587fa736baf2cc"
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "078aac9507c67d6a6bf082cef3b49961"
+            "eTag": "fdb6f28a200323d2c5411497d7bb972c"
           }
         },
         "lambda": [
@@ -34,7 +34,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-apartments2-default",
             "handler": "index.handler",
-            "revisionId": "9beedb0b-455a-48cd-9e2f-c30a760b0ee6",
+            "revisionId": "471aa2a6-2895-45cc-991e-18964322d3b0",
             "runtime": "nodejs8.10"
           }
         ]

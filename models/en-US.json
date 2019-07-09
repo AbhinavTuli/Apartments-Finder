@@ -20,14 +20,63 @@
                     "slots": [
                         {
                             "name": "city",
-                            "type": "AMAZON.City"
+                            "type": "AMAZON.City",
+                            "samples": [
+                                "{city}"
+                            ]
                         },
                         {
                             "name": "price",
-                            "type": "AMAZON.NUMBER"
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "I can afford a rent of {price} dollars",
+                                "I can spend {price} dollars per month",
+                                "my budget is {price} dollars",
+                                "{price} dollars",
+                                "my budget is {price}",
+                                "{price}"
+                            ]
                         }
                     ],
                     "samples": [
+                        "search apartments",
+                        "look for apartments",
+                        "find apartments",
+                        "look",
+                        "find",
+                        "search",
+                        "show",
+                        "search for apartments with rent less than {price} dollars",
+                        "show apartments with rent under {price} dollars",
+                        "show me apartments with rent under {price} dollars",
+                        "search for apartments with rent under {price} dollars",
+                        "show me apartments with rent less than {price} dollars",
+                        "apartments with rent less than {price} dollars",
+                        "apartments with rent under {price} dollars",
+                        "search for homes",
+                        "show me apartments",
+                        "search for apartments",
+                        "I'm looking for a home",
+                        "I'm looking for a house",
+                        "show me house",
+                        "show me home",
+                        "house",
+                        "home",
+                        "apartments",
+                        "show me aparments",
+                        "apartments under {price} dollars",
+                        "apartments in {city} under {price} dollars",
+                        "apartments in {city} under the price of {price} dollars",
+                        "apartments in {city} under the price of {price}",
+                        "apartments in {city} under {price}",
+                        "apartments under {price} ",
+                        "apartments in {city}",
+                        "i want to find apartments in {city} for {price} dollars",
+                        "apartments in {city} for less than {price} dollars",
+                        "i want to find apartments in {city} for less than {price} dollars",
+                        "show me apartments under {price} dollars in {city}",
+                        "show me apartments in {city}",
+                        "show me apartments priced less than {price} dollars",
                         "show me apartments in {city} priced at less than {price} dollars"
                     ]
                 },
@@ -53,9 +102,74 @@
                         "nope",
                         "no"
                     ]
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": [
+                        "drinks",
+                        "chocolate",
+                        "food",
+                        "apple",
+                        "die",
+                        "lol",
+                        "haha",
+                        "pudding",
+                        "banana"
+                    ]
                 }
             ],
             "types": []
-        }
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "GetRemoteDataIntent",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "city",
+                            "type": "AMAZON.City",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1354944642935.1441166973635"
+                            }
+                        },
+                        {
+                            "name": "price",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1354944642935.1062889313075"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1354944642935.1062889313075",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What's your budget per month for rent?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1354944642935.1441166973635",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What city?"
+                    }
+                ]
+            }
+        ]
     }
 }
