@@ -47,6 +47,8 @@ const GetRemoteDataHandler = {
     var city = slots['city'].value;
     city=city.toLowerCase()
     const price=slots['price'].value;
+    var beds =slots['beds'].value;
+    let outputSpeech;
     var i;
     blst=[];
     ct=0;
@@ -54,6 +56,18 @@ const GetRemoteDataHandler = {
       slst=[];
       rent= data2[i].rent
       rent = rent.replace( /,/g, "" );
+      if(slots['beds'].value){
+        if(data2[i].city==city && rent<=price && data2[i].beds==beds){
+          slst.push(data2[i].title);
+          slst.push(rent);
+          slst.push(data2[i].address);
+          slst.push(data2[i].beds);
+          slst.push(data2[i].phone);
+          blst.push(slst);
+          ct++;
+        }
+      }
+      else{
       if(data2[i].city==city && rent<=price){
         slst.push(data2[i].title);
         slst.push(rent);
@@ -64,7 +78,8 @@ const GetRemoteDataHandler = {
         ct++;
       }
     }
-    let outputSpeech=`There are ${ct} apartments`
+    }
+    outputSpeech=`There are ${ct} apartments`
     j=0;
     if(ct==0){
       outputSpeech=`I didn't find any such apartments. Would you like to search for some other apartments?`
@@ -72,13 +87,13 @@ const GetRemoteDataHandler = {
       flag2=0;
     }
     else if(ct==1){
-      outputSpeech=`There's only one apartment satifying the criteria which is ${blst[0][0]} which has a rent of ${blst[0][1]} dollars. It has ${blst[0][3]} beds and its address is ${blst[0][2]}. You can contact the owner at ${blst[0][4]}........... Would you like to search for some other apartments? `
+      outputSpeech=`There's only one apartment satifying the criteria which is ${blst[0][0]} which has a rent of ${blst[0][1]} dollars. It has ${blst[0][3]} beds and its address is ${blst[0][2]}. You can contact the owner at ${blst[0][4]} <break time ="0.5s"/> Would you like to search for some other apartments? `
       flag1=1;
       flag2=0;
     }
     else{
       j=0
-      outputSpeech = `I found ${ct} such apartments. The top one is ${blst[j][0]} which has a rent of ${blst[j][1]} dollars. It has ${blst[0][3]} beds and its address is ${blst[0][2]}. You can contact the owner at ${blst[0][4]}........... Would you like to know about the next one? `;
+      outputSpeech = `I found ${ct} such apartments. The top one is ${blst[j][0]} which has a rent of ${blst[j][1]} dollars. It has ${blst[0][3]} beds and its address is ${blst[0][2]}. You can contact the owner at ${blst[0][4]} <break time ="0.5s"/> Would you like to know about the next one? `;
     flag1=0;
     flag2=1;
   }
@@ -107,11 +122,11 @@ const YesIntentHandler={
       }
       else{
         if(j<ct-1){
-        speechText=`The next one is ${blst[j][0]}  which has a rent of ${blst[j][1]} dollars. It has ${blst[j][3]} beds and its address is ${blst[j][2]}. You can contact the owner at ${blst[j][4]}........... Would you like to know about the next one?`
+        speechText=`The next one is ${blst[j][0]}  which has a rent of ${blst[j][1]} dollars. It has ${blst[j][3]} beds and its address is ${blst[j][2]}. You can contact the owner at ${blst[j][4]} <break time ="0.5s"/> Would you like to know about the next one?`
         j++;
       }
         else if(j==ct-1){
-        speechText=`The last one is  ${blst[j][0]} which has a rent of ${blst[j][1]} dollars. It has ${blst[j][3]} beds and its address is ${blst[j][2]}. You can contact the owner at ${blst[j][4]}...........Would you like to search for some other apartments?`
+        speechText=`The last one is  ${blst[j][0]} which has a rent of ${blst[j][1]} dollars. It has ${blst[j][3]} beds and its address is ${blst[j][2]}. You can contact the owner at ${blst[j][4]} <break time ="0.5s"/> Would you like to search for some other apartments?`
         flag2=0
         flag1=1
       }
@@ -259,7 +274,7 @@ const ErrorHandler = {
     //console.log(`Error handled: ${error.message}`);
 
     return handlerInput.responseBuilder
-      .speak('Sorry, I can\'t understand the command. Please say again.')
+      .speak(`Error handled: ${error.message}`)
       .reprompt('Sorry, I can\'t understand the command. Please say again.')
       .getResponse();
   },

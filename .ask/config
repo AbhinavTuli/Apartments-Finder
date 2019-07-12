@@ -34,7 +34,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-apartments2-default",
             "handler": "index.handler",
-            "revisionId": "471aa2a6-2895-45cc-991e-18964322d3b0",
+            "revisionId": "4d4de0a5-2218-4c58-8d00-2fc28cdda5ab",
             "runtime": "nodejs8.10"
           }
         ]
